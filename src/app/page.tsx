@@ -1,6 +1,7 @@
 import Featured from "@/components/Featured";
 import Offer from "@/components/Offer";
 import Slider from "@/components/Slider";
+import MenuPage from "./menu/page";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <Slider />
         <Featured />
         <Offer />
+        <MenuPage />
       </main>
   );
 }
