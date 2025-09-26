@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { menu } from '@/data'
+import clsx from "clsx";
 
 const MenuPage = () => {
     return (
@@ -10,12 +11,20 @@ const MenuPage = () => {
                     href={`/menu/${category.slug}`}
                     key={category.id}
                     className="w-full h-1/3 bg-cover p-8 md:h-1/2"
-                    style={{backgroundImage: `url(${category.img})`}}
+                    style={{ backgroundImage: `url(${category.img})` }}
                 >
                     <div className={`text-${category.color} w-1/2`}>
                         <h1 className="uppercase font-bold text-3xl">{category.title}</h1>
                         <p className="text-sm my-8">{category.desc}</p>
-                        <button className={`hidden 2xl:block bg-${category.color} text-${category.color === "black" ? "white" : "red-500"} px-4 py-2 rounded-md`}>Explore</button>
+                        <button
+                            className={clsx(
+                                "hidden 2xl:block px-4 py-2 rounded-md cursor-pointer",
+                                category.color === "white" && "bg-white text-red-500",
+                                category.color === "black" && "bg-black text-white"
+                            )}
+                        >
+                            Explore
+                        </button>
                     </div>
                 </Link>
             ))}
